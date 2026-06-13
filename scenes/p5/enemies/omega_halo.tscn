@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://gjqdk1sxgoo8"]
+
+[ext_resource type="PackedScene" uid="uid://c7rd3d7p2m77l" path="res://assets/p5/enemies/omega_halo/omega_halo.glb" id="1_s7d5m"]
+[ext_resource type="Script" uid="uid://bpbka2p8nualm" path="res://scenes/p5/enemies/omega_halo.gd" id="2_tht6c"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bjakg"]
+animation = &"cbbm_id0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fxalg"]
+animation = &"cbbm_sp01"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3ntti"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_62dv4"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jrk5x"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jy1an"]
+states/End/position = Vector2(1292, 115)
+states/Start/position = Vector2(185, 178)
+states/definitely_idle/node = SubResource("AnimationNodeAnimation_bjakg")
+states/definitely_idle/position = Vector2(353, 157)
+states/laser_blast/node = SubResource("AnimationNodeAnimation_fxalg")
+states/laser_blast/position = Vector2(525, 147)
+transitions = ["Start", "definitely_idle", SubResource("AnimationNodeStateMachineTransition_3ntti"), "definitely_idle", "laser_blast", SubResource("AnimationNodeStateMachineTransition_62dv4"), "laser_blast", "definitely_idle", SubResource("AnimationNodeStateMachineTransition_jrk5x")]
+
+[node name="omega_halo" instance=ExtResource("1_s7d5m")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 0, 0, 0)
+script = ExtResource("2_tht6c")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "cbbm_id0"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_jy1an")
+anim_player = NodePath("../AnimationPlayer")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brw5l34ugad6y"]
+
+[ext_resource type="Script" uid="uid://yyg10atvp27e" path="res://scenes/common/player_characters/lockon/remote_code_smell.gd" id="1_b6oml"]
+
+[node name="RemoteCodeSmellMesh" type="MeshInstance3D"]
+script = ExtResource("1_b6oml")

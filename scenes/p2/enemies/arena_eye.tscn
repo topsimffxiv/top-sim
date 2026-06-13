@@ -1,0 +1,60 @@
+[gd_scene load_steps=14 format=3 uid="uid://nr388rbmhnsu"]
+
+[ext_resource type="PackedScene" uid="uid://d32a3p8k5js82" path="res://assets/p2/enemies/eye/arena_eye.glb" id="1_hu28p"]
+[ext_resource type="Texture2D" uid="uid://cae5b13ejtlho" path="res://assets/p2/enemies/eye/textures/_z3o1_a1_clo02_d.tex.png" id="2_vpaqm"]
+[ext_resource type="Texture2D" uid="uid://c2eio2i7ensgf" path="res://assets/p2/enemies/eye/textures/z3o1_a1_clo02_s.tex.png" id="3_6j2mw"]
+[ext_resource type="Texture2D" uid="uid://dym4biisnqxlb" path="res://assets/p2/enemies/eye/textures/z3o1_a1_clo02_n.tex.png" id="4_h64vu"]
+[ext_resource type="Texture2D" uid="uid://bud8o3tes6vhe" path="res://assets/p2/enemies/eye/textures/z3o1_a0_flo03_d.tex.png" id="5_iq7ev"]
+[ext_resource type="Texture2D" uid="uid://b8nhxf5lic8gy" path="res://assets/p2/enemies/eye/textures/z3o1_a0_flo03_n.tex.png" id="6_pp1y7"]
+[ext_resource type="Texture2D" uid="uid://camfe6rv1g0q3" path="res://assets/p2/enemies/eye/textures/z3o1_a0_flo03_s.tex.png" id="6_vpaqm"]
+[ext_resource type="Texture2D" uid="uid://bk2oaoh0wkm8s" path="res://assets/p2/enemies/eye/textures/z3of_a0_flo03_d.tex.png" id="7_ou1ru"]
+[ext_resource type="Texture2D" uid="uid://c5o2so2x08mg8" path="res://assets/p2/enemies/eye/textures/z3of_a0_flo03_n.tex.png" id="8_wwfra"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yq3v"]
+albedo_color = Color(0.648215, 0.73553, 1, 1)
+albedo_texture = ExtResource("2_vpaqm")
+metallic = 1.0
+metallic_texture = ExtResource("3_6j2mw")
+roughness_texture = ExtResource("3_6j2mw")
+roughness_texture_channel = 1
+emission = Color(0.67069, 0.67069, 0.67069, 1)
+normal_enabled = true
+normal_texture = ExtResource("4_h64vu")
+clearcoat = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou3hy"]
+albedo_color = Color(0.647059, 0.737255, 1, 1)
+albedo_texture = ExtResource("5_iq7ev")
+metallic = 1.0
+metallic_specular = 0.76
+metallic_texture = ExtResource("6_vpaqm")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("6_pp1y7")
+rim_enabled = true
+rim_tint = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg5s2"]
+rim_enabled = true
+rim_tint = 0.41
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej1rn"]
+albedo_color = Color(0.647059, 0.737255, 1, 1)
+albedo_texture = ExtResource("7_ou1ru")
+metallic = 0.31
+metallic_specular = 0.0
+emission = Color(0.00351917, 0.00351917, 0.00351917, 1)
+normal_enabled = true
+normal_texture = ExtResource("8_wwfra")
+rim_enabled = true
+rim_tint = 1.0
+
+[node name="arena_eye" instance=ExtResource("1_hu28p")]
+
+[node name="z3of_a0_eye01_56_001" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0yq3v")
+surface_material_override/1 = SubResource("StandardMaterial3D_ou3hy")
+surface_material_override/2 = SubResource("StandardMaterial3D_ou3hy")
+surface_material_override/4 = SubResource("StandardMaterial3D_hg5s2")
+surface_material_override/5 = SubResource("StandardMaterial3D_0yq3v")
+surface_material_override/6 = SubResource("StandardMaterial3D_ej1rn")

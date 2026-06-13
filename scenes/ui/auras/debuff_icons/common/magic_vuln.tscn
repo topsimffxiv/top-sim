@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx76sx37rim48"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1mrph"]
+load_path = "res://.godot/imported/magic_vuln.png-a34e3f7365068d12a4c56e46a17519f9.ctex"
+
+[node name="magic_vuln_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = SubResource("CompressedTexture2D_1mrph")
+expand_mode = 1
+metadata/debuff_name = "Magic Vulnerability"

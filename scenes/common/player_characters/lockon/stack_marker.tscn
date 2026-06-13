@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://fsk7o8ky2v7e"]
+
+[ext_resource type="Script" uid="uid://b8era14e8c8nw" path="res://scenes/common/player_characters/lockon/stack_marker.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cyirsftdmerix" path="res://scenes/common/player_characters/lockon/stack_arrow.tscn" id="2"]
+[ext_resource type="Shader" uid="uid://bxjrqvln7pnph" path="res://assets/common/shaders/donut.gdshader" id="3_8nxmn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bin7f"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_8nxmn")
+shader_parameter/size = 0.248
+shader_parameter/alpha = 0.08
+shader_parameter/color = Vector3(1, 1, 0.705)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m7r4w"]
+material = SubResource("ShaderMaterial_bin7f")
+top_radius = 13.0
+bottom_radius = 13.0
+height = 0.001
+
+[node name="Stack_Marker" type="Node3D"]
+script = ExtResource("1")
+metadata/id = "STACK_MARKER"
+
+[node name="ScaleFactor" type="Node3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="TopArrow" parent="ScaleFactor" instance=ExtResource("2")]
+unique_name_in_owner = true
+transform = Transform3D(0.35, 0, 0, 0, -1.5299e-08, 0.35, 0, -0.35, -1.5299e-08, 0, 12.2604, 0)
+
+[node name="Arrow2" parent="ScaleFactor" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+
+[node name="Arrow3" parent="ScaleFactor" instance=ExtResource("2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, 0)
+
+[node name="Arrow4" parent="ScaleFactor" instance=ExtResource("2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -19)
+
+[node name="Arrow5" parent="ScaleFactor" instance=ExtResource("2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19, 0, 0)
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_m7r4w")
+skeleton = NodePath("../ScaleFactor")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crewso7ys1t5t"]
+
+[ext_resource type="Script" uid="uid://dkhsw16o8grto" path="res://scenes/common/controllers/EncounterController.gd" id="1"]
+
+[node name="EncounterController" type="Node"]
+script = ExtResource("1")

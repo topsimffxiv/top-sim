@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dui5npd5l22el"]
+
+[ext_resource type="Texture2D" uid="uid://d4lo1a18vykf2" path="res://assets/common/icons/debuff_icons/local_code_smell.png" id="1_27ne6"]
+
+[node name="local_code_smell_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_27ne6")
+expand_mode = 1
+metadata/debuff_name = "Local Code Smell"

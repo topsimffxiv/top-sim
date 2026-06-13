@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dldcfhreudnwl"]
+
+[ext_resource type="Texture2D" uid="uid://tu5bxm643txn" path="res://assets/common/icons/debuff_icons/thrice_come_ruin.png" id="1_yejst"]
+
+[node name="thrice_come_ruin_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_yejst")
+expand_mode = 1
+metadata/debuff_name = "Thrice Come Ruin"

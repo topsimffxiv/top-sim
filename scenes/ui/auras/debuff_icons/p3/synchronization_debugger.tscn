@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c46mdjv3unmn5"]
+
+[ext_resource type="Texture2D" uid="uid://snl3j1df2bvi" path="res://assets/common/icons/debuff_icons/synchronization_debugger.png" id="1_0qocv"]
+
+[node name="synchronization_debugger_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_0qocv")
+expand_mode = 1
+metadata/debuff_name = "Synchronization Debugger"

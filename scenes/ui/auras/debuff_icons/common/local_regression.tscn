@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://clvjtlwbhv0o8"]
+
+[ext_resource type="Texture2D" uid="uid://8qjoukw5o38e" path="res://assets/common/icons/debuff_icons/local_regression.png" id="1_rv4rn"]
+
+[node name="local_regression_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_rv4rn")
+expand_mode = 1
+metadata/debuff_name = "Local Regression"

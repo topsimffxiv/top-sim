@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2mlna32txcuj"]
+
+[ext_resource type="Script" uid="uid://dxmvji13rtmbh" path="res://scenes/common/player_characters/lockon/local_regression.gd" id="1_1axh8"]
+
+[node name="LocalRegressionMesh" type="MeshInstance3D"]
+script = ExtResource("1_1axh8")

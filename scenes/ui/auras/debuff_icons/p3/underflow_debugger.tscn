@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://babk037ojuatm"]
+
+[ext_resource type="Texture2D" uid="uid://crfug8o2n8ub7" path="res://assets/common/icons/debuff_icons/underflow_debugger.png" id="1_4rlfu"]
+
+[node name="underflow_debugger_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_4rlfu")
+expand_mode = 1
+metadata/debuff_name = "Underflow Debugger"

@@ -1,0 +1,13 @@
+.godot/
+.import/
+assets/
+export_presets.cfg
+
+.mono/
+data_*/
+mono_crash_*.log
+
+.DS_Store
+Thumbs.db
+*.uid
+todo.txt

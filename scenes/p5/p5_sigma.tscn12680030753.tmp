@@ -1,0 +1,379 @@
+[gd_scene load_steps=41 format=3 uid="uid://wc3s5ka1yvwy"]
+
+[ext_resource type="Script" uid="uid://dqkox5uvomc5k" path="res://scenes/p5/p5_sigma.gd" id="1_uu0ga"]
+[ext_resource type="PackedScene" uid="uid://b23aj0fsxbgap" path="res://scenes/menus/control_menu.tscn" id="2_3oxgt"]
+[ext_resource type="PackedScene" uid="uid://vftsma2c80sa" path="res://scenes/menus/pause_menu.tscn" id="3_dphl3"]
+[ext_resource type="PackedScene" uid="uid://chasoddjwqblg" path="res://scenes/ui/cast_bars/cast_bar.tscn" id="4_wuolf"]
+[ext_resource type="PackedScene" uid="uid://d0c27klcaisbj" path="res://scenes/ui/cast_bars/clone_cast_bar.tscn" id="5_1of0o"]
+[ext_resource type="PackedScene" uid="uid://cg0h4uysscvtc" path="res://scenes/ui/action_bar.tscn" id="6_qltm7"]
+[ext_resource type="PackedScene" uid="uid://cidk1e7u3l0ya" path="res://scenes/ui/fail_list.tscn" id="7_35vjm"]
+[ext_resource type="PackedScene" uid="uid://02ckwb1trdp4" path="res://scenes/ui/party_list/party_list.tscn" id="8_feit7"]
+[ext_resource type="PackedScene" uid="uid://du2fr4o3nsww0" path="res://scenes/ui/auras/player_debuffs.tscn" id="9_bxd4m"]
+[ext_resource type="PackedScene" uid="uid://cbimodxf0fbhu" path="res://scenes/ui/waymark_menu.tscn" id="10_kt71e"]
+[ext_resource type="PackedScene" uid="uid://bwd1v6kvgas8d" path="res://scenes/common/controllers/waymark_controller.tscn" id="11_pgjr8"]
+[ext_resource type="PackedScene" uid="uid://bayxk6ajn7khf" path="res://scenes/common/controllers/party_controller.tscn" id="12_2pxq5"]
+[ext_resource type="PackedScene" uid="uid://wdaa7tvsg1oy" path="res://scenes/common/controllers/lockon_controller.tscn" id="13_1v7gc"]
+[ext_resource type="PackedScene" uid="uid://cr7iyhritaug4" path="res://scenes/common/controllers/chains_controller.tscn" id="14_pm5mk"]
+[ext_resource type="PackedScene" uid="uid://bauk161giibov" path="res://scenes/common/controllers/ground_aoe_controller.tscn" id="15_5lptr"]
+[ext_resource type="PackedScene" uid="uid://bquxvmem65yi8" path="res://scenes/common/controllers/puddle_controller.tscn" id="16_yqcj6"]
+[ext_resource type="PackedScene" uid="uid://crewso7ys1t5t" path="res://scenes/common/controllers/encounter_controller.tscn" id="17_bsk0u"]
+[ext_resource type="Script" uid="uid://w0wtqxepn2ac" path="res://scenes/p5/sigma_seq.gd" id="18_3oxgt"]
+[ext_resource type="PackedScene" uid="uid://d34kxn4pvs5sk" path="res://scenes/p5/arena/p5_arena.tscn" id="19_2rjoe"]
+[ext_resource type="PackedScene" uid="uid://b5a8l81gltuhy" path="res://scenes/common/ground_markers/death_wall.tscn" id="20_puyb5"]
+[ext_resource type="Texture2D" uid="uid://bmcxcd6diyj1x" path="res://assets/common/world_markers/wm_ground_marker.png" id="21_wpp21"]
+[ext_resource type="PackedScene" uid="uid://jcbpndkhehjl" path="res://scenes/ui/coords.tscn" id="22_bmihp"]
+[ext_resource type="Script" uid="uid://csh60sag7kx8n" path="res://scenes/ui/role_select_button.gd" id="23_bh266"]
+[ext_resource type="Script" uid="uid://c5qtf0pvgljg0" path="res://scenes/ui/spectate_button.gd" id="24_4knw6"]
+[ext_resource type="PackedScene" uid="uid://ce72svh5khi1u" path="res://scenes/ui/sequence_select_button.tscn" id="25_vw3o4"]
+[ext_resource type="Script" uid="uid://p74e86o3w280" path="res://scenes/ui/marker_select_button_sigma.gd" id="26_wuolf"]
+[ext_resource type="Script" uid="uid://cqwrxtpiavdwi" path="res://scenes/p2/strat_select_button.gd" id="27_6davp"]
+[ext_resource type="Script" uid="uid://b5smlgqon5q6l" path="res://scenes/p5/force_remote.gd" id="28_dphl3"]
+[ext_resource type="PackedScene" uid="uid://cmakti71sjg46" path="res://scenes/ui/info_box.tscn" id="28_ukiog"]
+[ext_resource type="Script" uid="uid://ck68xbnvomif0" path="res://scenes/p5/force_mid.gd" id="29_dphl3"]
+[ext_resource type="PackedScene" uid="uid://c6lwk2vknoj7w" path="res://scenes/ui/move_ui_reset_button.tscn" id="29_v03b4"]
+[ext_resource type="Script" uid="uid://2hejnihl1vlq" path="res://scenes/p5/disable_markers.gd" id="30_wuolf"]
+
+[sub_resource type="Animation" id="Animation_dphl3"]
+resource_name = "sigma_anim"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wuolf"]
+_data = {
+&"sigma_anim": SubResource("Animation_dphl3")
+}
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_23fhv"]
+data = PackedVector3Array(150, 0, 150, -150, 0, 150, 150, 0, -150, -150, 0, 150, -150, 0, -150, 150, 0, -150)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5pku"]
+transparency = 1
+albedo_texture = ExtResource("21_wpp21")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5pk2k"]
+material = SubResource("StandardMaterial3D_s5pku")
+size = Vector2(8.795, 6.96)
+center_offset = Vector3(-0.115, 0, 0.022)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p3ej1"]
+
+[sub_resource type="Sky" id="Sky_3kvju"]
+sky_material = SubResource("ProceduralSkyMaterial_p3ej1")
+
+[sub_resource type="Environment" id="Environment_ncsmy"]
+background_mode = 2
+sky = SubResource("Sky_3kvju")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="P5DynamisSigmaMain" type="Node3D"]
+script = ExtResource("1_uu0ga")
+
+[node name="ControlMenu" parent="." instance=ExtResource("2_3oxgt")]
+unique_name_in_owner = true
+layer = 99
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_dphl3")]
+
+[node name="CastBar" parent="." instance=ExtResource("4_wuolf")]
+unique_name_in_owner = true
+
+[node name="CloneCastBar" parent="." instance=ExtResource("5_1of0o")]
+
+[node name="ActionBar" parent="." instance=ExtResource("6_qltm7")]
+unique_name_in_owner = true
+
+[node name="FailList" parent="." instance=ExtResource("7_35vjm")]
+unique_name_in_owner = true
+
+[node name="PartyList" parent="." instance=ExtResource("8_feit7")]
+unique_name_in_owner = true
+
+[node name="PlayerDebuffs" parent="." instance=ExtResource("9_bxd4m")]
+unique_name_in_owner = true
+
+[node name="WaymarkMenu" parent="." instance=ExtResource("10_kt71e")]
+
+[node name="WaymarkController" parent="." node_paths=PackedStringArray("arena_waymark_node") instance=ExtResource("11_pgjr8")]
+unique_name_in_owner = true
+arena_waymark_node = NodePath("../Waymarks")
+
+[node name="PartyController" parent="." instance=ExtResource("12_2pxq5")]
+unique_name_in_owner = true
+
+[node name="LockonController" parent="." instance=ExtResource("13_1v7gc")]
+unique_name_in_owner = true
+
+[node name="ChainsController" parent="." instance=ExtResource("14_pm5mk")]
+unique_name_in_owner = true
+
+[node name="GroundAoEController" parent="." instance=ExtResource("15_5lptr")]
+unique_name_in_owner = true
+
+[node name="PuddleController" parent="." instance=ExtResource("16_yqcj6")]
+unique_name_in_owner = true
+
+[node name="EncounterController" parent="." instance=ExtResource("17_bsk0u")]
+unique_name_in_owner = true
+
+[node name="SigmaSeq" type="Node" parent="EncounterController"]
+script = ExtResource("18_3oxgt")
+
+[node name="SigmaAnim" type="AnimationPlayer" parent="EncounterController/SigmaSeq"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_wuolf")
+}
+
+[node name="Arena" type="Node3D" parent="."]
+
+[node name="Visual" type="Node3D" parent="Arena"]
+transform = Transform3D(2.358, 0, 0, 0, 2.358, 0, 0, 0, 2.358, 0, 0, 0)
+
+[node name="P5_Arena" parent="Arena/Visual" instance=ExtResource("19_2rjoe")]
+transform = Transform3D(-4.41485e-08, 0, 1.01, 0, 1.01, 0, -1.01, 0, -4.41485e-08, 0, 0.06, 0)
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Arena"]
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/FloorMesh"]
+collision_layer = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/FloorMesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_23fhv")
+
+[node name="DeathWall" parent="Arena" instance=ExtResource("20_puyb5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+
+[node name="Waymarks" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Characters" type="Node3D" parent="." groups=["characters_layer"]]
+
+[node name="Enemies" type="Node3D" parent="." groups=["enemies_layer"]]
+
+[node name="GroundMarkers" type="Node3D" parent="." groups=["ground_marker_layer"]]
+
+[node name="WMGroundMarker" type="MeshInstance3D" parent="GroundMarkers"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60837, 0.14, 0.0603294)
+visible = false
+mesh = SubResource("PlaneMesh_5pk2k")
+
+[node name="SpecialMarkers" type="Node3D" parent="GroundMarkers"]
+unique_name_in_owner = true
+
+[node name="Buttons" type="Node3D" parent="."]
+
+[node name="Coords" parent="Buttons" instance=ExtResource("22_bmihp")]
+anchors_preset = 3
+
+[node name="ResetButton" type="Button" parent="Buttons"]
+offset_left = 28.0
+offset_top = 18.0
+offset_right = 128.0
+offset_bottom = 58.0
+text = "Reset"
+
+[node name="MainMenuButton" type="Button" parent="Buttons"]
+visible = false
+offset_left = 28.0
+offset_top = 73.0
+offset_right = 128.0
+offset_bottom = 113.0
+text = "Main Menu"
+
+[node name="RoleSelectButton" type="OptionButton" parent="Buttons"]
+offset_left = 150.0
+offset_top = 21.0
+offset_right = 327.0
+offset_bottom = 52.0
+focus_mode = 0
+action_mode = 1
+button_mask = 3
+selected = 6
+fit_to_longest_item = false
+item_count = 8
+popup/item_0/text = "Tank 1"
+popup/item_0/id = 0
+popup/item_1/text = "Tank 2"
+popup/item_1/id = 1
+popup/item_2/text = "Healer 1"
+popup/item_2/id = 2
+popup/item_3/text = "Healer 2"
+popup/item_3/id = 3
+popup/item_4/text = "Melee 1"
+popup/item_4/id = 4
+popup/item_5/text = "Melee 2"
+popup/item_5/id = 5
+popup/item_6/text = "Ranged 1"
+popup/item_6/id = 6
+popup/item_7/text = "Ranged 2"
+popup/item_7/id = 7
+script = ExtResource("23_bh266")
+
+[node name="SpectateButton" type="CheckButton" parent="Buttons"]
+offset_left = 149.0
+offset_top = 55.0
+offset_right = 315.0
+offset_bottom = 86.0
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Spectate Mode"
+script = ExtResource("24_4knw6")
+
+[node name="SequenceSelectButton" parent="Buttons" instance=ExtResource("25_vw3o4")]
+item_count = 16
+popup/item_0/text = "Looper"
+popup/item_1/text = "Pantokrator"
+popup/item_2/text = "Party Synergy"
+popup/item_3/text = "Limitless Synergy"
+popup/item_4/text = "P3 Transition"
+popup/item_5/text = "Hello World"
+popup/item_6/text = "Monitors"
+popup/item_7/text = "Blue Screen"
+popup/item_7/id = 7
+popup/item_8/text = "Dynamis Delta"
+popup/item_8/id = 8
+popup/item_9/text = "Dynamis Sigma"
+popup/item_9/id = 9
+popup/item_10/text = "Dynamis Omega"
+popup/item_10/id = 10
+popup/item_11/text = "Cosmo Arrow 1"
+popup/item_11/id = 11
+popup/item_12/text = "Wave Cannon 1"
+popup/item_12/id = 12
+popup/item_13/text = "Cosmo Arrow 2"
+popup/item_13/id = 13
+popup/item_14/text = "Wave Cannon 2"
+popup/item_14/id = 14
+popup/item_15/text = "Cosmo Meteor"
+popup/item_15/id = 15
+
+[node name="DebuffSelectButton" parent="Buttons" instance=ExtResource("25_vw3o4")]
+offset_left = -416.0
+offset_right = -225.0
+item_count = 9
+popup/item_0/text = "Random"
+popup/item_1/text = "Bind 1"
+popup/item_2/text = "Bind 2"
+popup/item_3/text = "Target 1"
+popup/item_4/text = "Target 2"
+popup/item_5/text = "Target 3"
+popup/item_6/text = "Target 4"
+popup/item_7/text = "Near World"
+popup/item_7/id = 7
+popup/item_8/text = "Distant World"
+popup/item_8/id = 8
+script = ExtResource("26_wuolf")
+
+[node name="Label" type="Label" parent="Buttons/DebuffSelectButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 61.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 14
+text = "Role"
+
+[node name="StratSelectButton" type="OptionButton" parent="Buttons"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -374.0
+offset_top = 21.0
+offset_right = -226.0
+offset_bottom = 52.0
+grow_horizontal = 0
+focus_mode = 0
+action_mode = 1
+button_mask = 3
+selected = 0
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "NAUR (E/W Puddles)"
+popup/item_0/id = 0
+popup/item_1/text = "LPDU (N/S Puddles)"
+popup/item_1/id = 1
+popup/item_2/text = "Elemental (E/W)"
+popup/item_2/id = 2
+popup/item_3/text = "Mana (NE/SW)"
+popup/item_3/id = 3
+script = ExtResource("27_6davp")
+
+[node name="ForceRemote" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.0
+offset_top = 62.0
+offset_right = -14.0
+offset_bottom = 93.0
+grow_horizontal = 0
+tooltip_text = "Force Remote Glitch"
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+button_mask = 3
+text = "Force Remote"
+alignment = 2
+script = ExtResource("28_dphl3")
+
+[node name="ForceMid" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.0
+offset_top = 85.0
+offset_right = -14.0
+offset_bottom = 116.0
+grow_horizontal = 0
+tooltip_text = "RED ♨😩is 💦defamation. First 😌towers. R 🌈💰E 🐝🅱 D 😩😡is 💯🅱 defamation. Pass. 💯Pop 💦✨Green. Watch 👾rots."
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+button_mask = 3
+text = "Force Mid"
+alignment = 2
+script = ExtResource("29_dphl3")
+
+[node name="DisableMarkers" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.0
+offset_top = 110.0
+offset_right = -14.0
+offset_bottom = 141.0
+grow_horizontal = 0
+tooltip_text = "Don't use this solo unless you like gambling"
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+button_mask = 3
+text = "Disable Markers"
+alignment = 2
+script = ExtResource("30_wuolf")
+
+[node name="VersionLabel" parent="Buttons" instance=ExtResource("28_ukiog")]
+
+[node name="MoveUIResetButton" parent="Buttons" instance=ExtResource("29_v03b4")]
+unique_name_in_owner = true
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ncsmy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.869
+
+[connection signal="pressed" from="Buttons/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="item_selected" from="Buttons/RoleSelectButton" to="Buttons/RoleSelectButton" method="_on_item_selected"]
+[connection signal="pressed" from="Buttons/SpectateButton" to="Buttons/SpectateButton" method="_on_pressed"]
+[connection signal="item_selected" from="Buttons/StratSelectButton" to="Buttons/StratSelectButton" method="_on_item_selected"]
+[connection signal="pressed" from="Buttons/ForceRemote" to="Buttons/ForceRemote" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/ForceMid" to="Buttons/ForceMid" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/DisableMarkers" to="Buttons/DisableMarkers" method="_on_pressed"]

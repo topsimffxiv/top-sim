@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://nflqh2yxmxxf"]
+
+[ext_resource type="Texture2D" uid="uid://dymbl1dtretmm" path="res://assets/common/icons/debuff_icons/vuln_up.png" id="1_keyxn"]
+
+[node name="vuln_up_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_keyxn")
+expand_mode = 1
+metadata/debuff_name = "Vulnerability Up"

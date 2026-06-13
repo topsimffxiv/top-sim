@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmvx6iouatitp"]
+
+[ext_resource type="Texture2D" uid="uid://unch0uajnds4" path="res://assets/common/icons/debuff_icons/hello_distant_world.png" id="1_ngamn"]
+
+[node name="hello_distant_world" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_ngamn")
+expand_mode = 1
+metadata/debuff_name = "Hello, Distant World"

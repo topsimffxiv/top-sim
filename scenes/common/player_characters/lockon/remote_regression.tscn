@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b45nwr0pfldip"]
+
+[ext_resource type="Script" uid="uid://btv4cyhlm8ftd" path="res://scenes/common/player_characters/lockon/remote_regression.gd" id="1_oygml"]
+
+[node name="RemoteRegressionMesh" type="MeshInstance3D"]
+script = ExtResource("1_oygml")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckxbyg7rx3v6g"]
+
+[ext_resource type="Texture2D" uid="uid://cgu0cggu8fjnp" path="res://assets/common/icons/playstation/Lava_PSMarker_Triangle.png" id="1_ycnkq"]
+
+[node name="PS_Triangle" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
+metadata/id = "PS_TRIANGLE"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_ycnkq")

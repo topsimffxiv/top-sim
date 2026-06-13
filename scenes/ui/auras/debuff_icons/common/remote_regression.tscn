@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmxrc6cvkljk1"]
+
+[ext_resource type="Texture2D" uid="uid://d0s17tgafbud3" path="res://assets/common/icons/debuff_icons/remote_regression.png" id="1_n77yq"]
+
+[node name="remote_regression_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_n77yq")
+expand_mode = 1
+metadata/debuff_name = "Remote Regression"

@@ -1,0 +1,146 @@
+[gd_scene load_steps=19 format=3 uid="uid://banbfamj6cunq"]
+
+[ext_resource type="Script" uid="uid://dwbj3lmjoax3y" path="res://scenes/common/ground_markers/exaflare.gd" id="1_ds0ld"]
+[ext_resource type="PackedScene" uid="uid://d2dsrlb1yygk4" path="res://scenes/common/ground_markers/exaflare_arrow.tscn" id="1_eqhjw"]
+[ext_resource type="Material" uid="uid://cjjjij1l2xrvo" path="res://assets/common/materials/exaflares/small1.tres" id="2_f52jb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f52jb"]
+top_radius = 16.3
+bottom_radius = 16.3
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ds0ld"]
+transparency = 1
+albedo_color = Color(0.690196, 0.298039, 0.203922, 0.113725)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjwul"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 0.486275, 0.541176, 1.37138)
+emission_enabled = true
+emission = Color(0.776471, 0.776471, 0.776471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tvr2v"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_wjwul")
+size = Vector3(0.83, 0.105, 6.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lnced"]
+resource_local_to_scene = true
+material = ExtResource("2_f52jb")
+size = Vector3(0.83, 0.012, 4.225)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryuvd"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 0.486275, 0.439216, 0.643137)
+emission = Color(0.776471, 0.776471, 0.776471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ndrx5"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ryuvd")
+size = Vector3(0.83, 0.012, 4.225)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axyhm"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 0.486275, 0.439216, 0.643137)
+emission = Color(0.776471, 0.776471, 0.776471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1uk6j"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_axyhm")
+size = Vector3(0.83, 0.012, 4.225)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jecue"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 0.486275, 0.439216, 0.643137)
+emission = Color(0.776471, 0.776471, 0.776471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rvipa"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_jecue")
+size = Vector3(0.83, 0.012, 4.225)
+
+[sub_resource type="Animation" id="Animation_ygek3"]
+resource_name = "telegraph"
+length = 8.1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arrow/ArrowAnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("arrow_pulse", "arrow_pulse", "arrow_pulse", "arrow_pulse", "arrow_pulse", "arrow_pulse"),
+"times": PackedFloat32Array(0, 1.35, 2.7, 4.05, 5.4, 6.75)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epqyn"]
+_data = {
+&"telegraph": SubResource("Animation_ygek3")
+}
+
+[sub_resource type="TorusMesh" id="TorusMesh_ds0ld"]
+inner_radius = 16.2
+outer_radius = 16.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvr2v"]
+shading_mode = 2
+albedo_color = Color(0.879353, 0.445915, 0.340722, 1)
+emission_enabled = true
+emission_energy_multiplier = 1.65
+
+[node name="Exaflare" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_f52jb")
+surface_material_override/0 = SubResource("StandardMaterial3D_ds0ld")
+script = ExtResource("1_ds0ld")
+
+[node name="Arrow" parent="." instance=ExtResource("1_eqhjw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 13)
+
+[node name="LargeArrow" parent="Arrow" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.6177)
+
+[node name="ArmR" parent="Arrow/LargeArrow" index="0"]
+mesh = SubResource("BoxMesh_tvr2v")
+
+[node name="ArmL" parent="Arrow/LargeArrow" index="1"]
+mesh = SubResource("BoxMesh_tvr2v")
+
+[node name="ArmR" parent="Arrow/SmallArrow1" index="0"]
+mesh = SubResource("BoxMesh_lnced")
+
+[node name="ArmL" parent="Arrow/SmallArrow1" index="1"]
+mesh = SubResource("BoxMesh_lnced")
+
+[node name="ArmR" parent="Arrow/SmallArrow2" index="0"]
+mesh = SubResource("BoxMesh_ndrx5")
+
+[node name="ArmL" parent="Arrow/SmallArrow2" index="1"]
+mesh = SubResource("BoxMesh_ndrx5")
+
+[node name="ArmR" parent="Arrow/SmallArrow3" index="0"]
+mesh = SubResource("BoxMesh_1uk6j")
+
+[node name="ArmL" parent="Arrow/SmallArrow3" index="1"]
+mesh = SubResource("BoxMesh_1uk6j")
+
+[node name="ArmR" parent="Arrow/SmallArrow4" index="0"]
+mesh = SubResource("BoxMesh_rvipa")
+
+[node name="ArmL" parent="Arrow/SmallArrow4" index="1"]
+mesh = SubResource("BoxMesh_rvipa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_epqyn")
+}
+autoplay = "telegraph"
+
+[node name="OuterEdge" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_ds0ld")
+surface_material_override/0 = SubResource("StandardMaterial3D_tvr2v")
+
+[editable path="Arrow"]

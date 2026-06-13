@@ -1,0 +1,246 @@
+[gd_scene load_steps=16 format=3 uid="uid://ctf17a7xpxs6b"]
+
+[ext_resource type="Script" uid="uid://bafj8ibqluv1k" path="res://scenes/common/ground_markers/looper_solo.gd" id="1_ll5re"]
+
+[sub_resource type="Shader" id="Shader_wo7nj"]
+code = "shader_type spatial;
+render_mode unshaded;
+uniform float size: hint_range(0.0, 0.25);
+uniform float alpha: hint_range(0.0, 1.0);
+uniform vec3 color;
+
+void fragment() {
+	vec2 center = vec2(0.25, 0.75);
+	float df = distance(UV, center);
+	float circle = step(size, df);
+	ALBEDO = vec3(circle) * color;
+	ALPHA = alpha;
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll5re"]
+render_priority = 0
+shader = SubResource("Shader_wo7nj")
+shader_parameter/size = 0.224
+shader_parameter/alpha = 0.235
+shader_parameter/color = Vector3(1.892, 1.057, 0.188)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n40hq"]
+material = SubResource("ShaderMaterial_ll5re")
+top_radius = 0.0
+bottom_radius = 7.0
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p0hk"]
+albedo_color = Color(0.797404, 0.844374, 7.70092e-07, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.0156863, 1)
+emission_energy_multiplier = 7.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtfbm"]
+albedo_color = Color(1, 0.952941, 0.556863, 1)
+emission_enabled = true
+emission = Color(1, 0.952941, 0.556863, 1)
+emission_energy_multiplier = 4.94
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_csrwp"]
+material = SubResource("StandardMaterial3D_jtfbm")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 100.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ll5re"]
+albedo_color = Color(0.682353, 0.647059, 0.662745, 0.898039)
+metallic = 1.0
+roughness = 0.52
+emission = Color(0.717148, 0.675301, 0, 1)
+emission_energy_multiplier = 0.02
+rim = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_u4r21"]
+material = SubResource("StandardMaterial3D_ll5re")
+radius = 2.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmtng"]
+shading_mode = 0
+albedo_color = Color(0.952941, 0.337255, 0, 1)
+heightmap_scale = -11.985
+
+[sub_resource type="SphereMesh" id="SphereMesh_jtfbm"]
+material = SubResource("StandardMaterial3D_vmtng")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5rwqm"]
+height = 8.36035
+radius = 7.04785
+
+[sub_resource type="Animation" id="Animation_nux8y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Orb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 29.5833, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Orb:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Orb:mesh:material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.682353, 0.647059, 0.662745, 0.898039)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GroundOrbCenter:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r6808"]
+resource_name = "orb_drop"
+length = 9.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Orb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 29.5833, 0), Vector3(0, 1.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Orb:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Orb:mesh:material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(9.4, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.682353, 0.647059, 0.662745, 0.898039), Color(0.682353, 0.647059, 0.662745, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GroundOrbCenter:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 18.8496, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a00d4"]
+_data = {
+&"RESET": SubResource("Animation_nux8y"),
+&"orb_drop": SubResource("Animation_r6808")
+}
+
+[node name="LooperSoloTower" type="Node3D"]
+transform = Transform3D(0.96, 0, 0, 0, 0.96, 0, 0, 0, 0.96, 0, 0, 0)
+script = ExtResource("1_ll5re")
+
+[node name="OuterMeshHighlight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
+mesh = SubResource("CylinderMesh_n40hq")
+
+[node name="UpperGlowRing" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.9698, 0)
+visible = false
+inner_radius = 3.9
+outer_radius = 4.0
+sides = 64
+ring_sides = 5
+material = SubResource("StandardMaterial3D_6p0hk")
+
+[node name="LowerGlowRing" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+inner_radius = 6.95
+outer_radius = 7.15
+sides = 64
+ring_sides = 5
+material = SubResource("StandardMaterial3D_6p0hk")
+
+[node name="LightBeam" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+mesh = SubResource("CylinderMesh_csrwp")
+
+[node name="Orb" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.5833, 0)
+mesh = SubResource("SphereMesh_u4r21")
+
+[node name="GroundOrbCenter" type="Node3D" parent="."]
+
+[node name="GroundOrb" type="MeshInstance3D" parent="GroundOrbCenter"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.325, 7.3)
+mesh = SubResource("SphereMesh_jtfbm")
+skeleton = NodePath("../..")
+
+[node name="CollisionArea3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0629882, 0)
+shape = SubResource("CylinderShape3D_5rwqm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a00d4")
+}
+
+[connection signal="body_entered" from="CollisionArea3D" to="." method="_on_collision_area_3d_body_entered"]
+[connection signal="body_exited" from="CollisionArea3D" to="." method="_on_collision_area_3d_body_exited"]

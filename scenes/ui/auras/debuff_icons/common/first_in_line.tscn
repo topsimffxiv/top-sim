@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxlks55j0jas7"]
+
+[ext_resource type="Texture2D" uid="uid://bcgeao4ak3nrh" path="res://assets/common/icons/debuff_icons/first_in_line.png" id="1_uxfmy"]
+
+[node name="first_in_line_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_uxfmy")
+expand_mode = 1
+metadata/debuff_name = "First In Line"

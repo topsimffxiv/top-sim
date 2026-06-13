@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://cg0h4uysscvtc"]
+
+[ext_resource type="Script" uid="uid://cvbdbmv8rscvq" path="res://scenes/ui/action_bar.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bw67wbi2y10qu" path="res://scenes/ui/action_button.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://bdgblpm8sufms" path="res://assets/common/icons/action_icons/arms_icon.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dwagyqkkwyd6g" path="res://assets/common/icons/action_icons/arms_hl_icon.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://c8kdwg5reria3" path="res://assets/common/icons/action_icons/avant_icon.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://vrd7svwohbqn" path="res://assets/common/icons/action_icons/avant_hl_icon.png" id="6"]
+[ext_resource type="FontFile" uid="uid://bre88dcj783yo" path="res://assets/common/fonts/eurostarregularextended.ttf" id="7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2v8av"]
+bg_color = Color(0.267, 0.267, 0.267, 0.741)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.780392, 0.501961, 0.360784, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q26as"]
+font = ExtResource("7")
+font_size = 20
+outline_size = 3
+outline_color = Color(0.780392, 0.501961, 0.360784, 1)
+
+[node name="ActionBar" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.463
+anchor_top = 0.716
+anchor_right = 0.463
+anchor_bottom = 0.716
+offset_left = -0.375977
+offset_top = -0.968018
+offset_right = 134.624
+offset_bottom = 44.032
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SprintActionButton" parent="MarginContainer/ButtonsContainer" instance=ExtResource("2")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+cooldown = 60.0
+
+[node name="ArmsActionButton" parent="MarginContainer/ButtonsContainer" instance=ExtResource("2")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+texture_normal = ExtResource("3")
+texture_hover = ExtResource("4")
+cooldown = 120.0
+
+[node name="DashActionButton" parent="MarginContainer/ButtonsContainer" instance=ExtResource("2")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+texture_normal = ExtResource("5")
+texture_hover = ExtResource("6")
+cooldown = 1.0
+
+[node name="MoveUIBG" type="Panel" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_2v8av")
+
+[node name="Label" type="Label" parent="MarginContainer/MoveUIBG"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 10.0
+offset_right = 169.0
+offset_bottom = 35.0
+text = "Action Bar"
+label_settings = SubResource("LabelSettings_q26as")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="MarginContainer" to="." method="_on_margin_container_gui_input"]

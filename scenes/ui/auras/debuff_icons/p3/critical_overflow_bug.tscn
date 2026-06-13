@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bakefnk6b44tp"]
+
+[ext_resource type="Texture2D" uid="uid://c6q4lqmcsl6dk" path="res://assets/common/icons/debuff_icons/critical_overflow_bug.png" id="1_evyg2"]
+
+[node name="critical_overflow_bug_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_evyg2")
+expand_mode = 1
+metadata/debuff_name = "Critical Overflow Bug"

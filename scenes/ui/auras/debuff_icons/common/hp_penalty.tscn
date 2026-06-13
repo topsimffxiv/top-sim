@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://chebd5ad1cl3a"]
+
+[ext_resource type="Texture2D" uid="uid://irqfmcxo36lh" path="res://assets/common/icons/debuff_icons/hp_penalty.png" id="1_c5yf1"]
+
+[node name="hp_penalty_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_c5yf1")
+expand_mode = 1
+metadata/debuff_name = "HP Penalty"

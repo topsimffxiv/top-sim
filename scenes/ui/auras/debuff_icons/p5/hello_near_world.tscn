@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwta3mieiwlwt"]
+
+[ext_resource type="Texture2D" uid="uid://cm1etggxancht" path="res://assets/common/icons/debuff_icons/hello_near_world.png" id="1_sxa00"]
+
+[node name="hello_near_world_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_sxa00")
+expand_mode = 1
+metadata/debuff_name = "Hello, Near World"

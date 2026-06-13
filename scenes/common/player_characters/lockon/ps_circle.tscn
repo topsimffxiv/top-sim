@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c525nc6qbtr8i"]
+
+[ext_resource type="Texture2D" uid="uid://8rql68wlnx11" path="res://assets/common/icons/playstation/Lava_PSMarker_Circle.png" id="1_xc6xp"]
+
+[node name="PS_Circle" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
+metadata/id = "PS_CIRCLE"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_xc6xp")

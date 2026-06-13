@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://lnpx0ne71elj"]
+
+[ext_resource type="PackedScene" uid="uid://da63b1msbydnl" path="res://assets/p5/enemies/yellow_fist/omega_rocket_punch_yellow.glb" id="1_7i5au"]
+[ext_resource type="Script" uid="uid://cvdesadynb5ur" path="res://scenes/p5/enemies/omega_rocket_punch_yellow.gd" id="2_84mj8"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_84mj8"]
+animation = &"cbbm_id0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7i5au"]
+animation = &"cbbm_sp07"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ha36"]
+animation = &"cbbm_sp_pop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d6d2i"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hdb1j"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ml3n"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8is76"]
+states/End/position = Vector2(1243, 155)
+states/Start/position = Vector2(152, 160)
+states/cbbm_id0/node = SubResource("AnimationNodeAnimation_84mj8")
+states/cbbm_id0/position = Vector2(548, 76)
+states/cbbm_sp07/node = SubResource("AnimationNodeAnimation_7i5au")
+states/cbbm_sp07/position = Vector2(728, 143)
+states/cbbm_sp_pop/node = SubResource("AnimationNodeAnimation_6ha36")
+states/cbbm_sp_pop/position = Vector2(359, 114)
+transitions = ["Start", "cbbm_sp_pop", SubResource("AnimationNodeStateMachineTransition_d6d2i"), "cbbm_sp_pop", "cbbm_id0", SubResource("AnimationNodeStateMachineTransition_hdb1j"), "cbbm_id0", "cbbm_sp07", SubResource("AnimationNodeStateMachineTransition_4ml3n")]
+
+[node name="omega_rocket_punch_yellow" instance=ExtResource("1_7i5au")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("2_84mj8")
+
+[node name="Skeleton3D" parent="m0114b0006/n_root" index="0"]
+bones/0/position = Vector3(-0.178165, 0.211092, -4.53479)
+bones/0/rotation = Quaternion(-0.258991, 0, 0, 0.96588)
+bones/1/rotation = Quaternion(0.131448, 0.0435542, -0.0384361, 0.98962)
+bones/2/rotation = Quaternion(0.402011, 0.642471, 0.378768, -0.531181)
+bones/3/rotation = Quaternion(-2.4148e-08, -1.25172e-07, 0.73298, 0.680251)
+bones/4/rotation = Quaternion(0.64525, -0.0508037, 0.759617, 0.0636676)
+bones/5/rotation = Quaternion(1.12115e-07, 7.46712e-08, 0.749327, 0.6622)
+bones/6/rotation = Quaternion(0.669846, 0.0613379, 0.735934, -0.0771073)
+bones/7/rotation = Quaternion(-7.83297e-08, -8.23258e-08, 0.76451, 0.644612)
+bones/8/rotation = Quaternion(0.656705, -0.0298498, 0.75342, 0.0143358)
+bones/9/rotation = Quaternion(-8.64888e-08, -1.40186e-07, 0.774437, 0.632651)
+bones/10/rotation = Quaternion(0.66554, 0.0487989, 0.744495, -0.020074)
+bones/11/rotation = Quaternion(3.04805e-08, -2.42766e-08, 0.76888, 0.639393)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_8is76")
+anim_player = NodePath("../AnimationPlayer")

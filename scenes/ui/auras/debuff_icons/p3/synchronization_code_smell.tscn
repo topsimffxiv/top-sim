@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1wxra7ewwy0o"]
+
+[ext_resource type="Texture2D" uid="uid://cuyq5dk25rern" path="res://assets/common/icons/debuff_icons/synchronization_code_smell.png" id="1_11m5h"]
+
+[node name="synchronization_code_smell_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_11m5h")
+expand_mode = 1
+metadata/debuff_name = "Synchronization Code Smell"

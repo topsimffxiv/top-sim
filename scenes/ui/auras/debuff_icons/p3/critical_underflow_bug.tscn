@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg55sfgx3b8mn"]
+
+[ext_resource type="Texture2D" uid="uid://cn0blrdq0v5uc" path="res://assets/common/icons/debuff_icons/critical_underflow_bug.png" id="1_bowax"]
+
+[node name="critical_underflow_bug_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_bowax")
+expand_mode = 1
+metadata/debuff_name = "Critical Underflow Bug"

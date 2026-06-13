@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbhf5gpi4kxt6"]
+
+[ext_resource type="Texture2D" uid="uid://bolu6sumruinp" path="res://assets/common/icons/debuff_icons/cascading_latent_defect.png" id="1_uguox"]
+
+[node name="cascading_latent_defect_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_uguox")
+expand_mode = 1
+metadata/debuff_name = "Cascading Latent Defect"

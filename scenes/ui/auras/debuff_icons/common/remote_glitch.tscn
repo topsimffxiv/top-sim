@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjwjux6bo0fp6"]
+
+[ext_resource type="Texture2D" uid="uid://dm2g7s6nyecbc" path="res://assets/common/icons/debuff_icons/remote_glitch.png" id="1_dieaq"]
+
+[node name="remote_glitch_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_dieaq")
+expand_mode = 1
+metadata/debuff_name = "Remote Glitch"

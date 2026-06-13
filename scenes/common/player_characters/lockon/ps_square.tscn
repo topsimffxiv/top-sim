@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp2t7vwhm7m1f"]
+
+[ext_resource type="Texture2D" uid="uid://bkcmk1r270p7x" path="res://assets/common/icons/playstation/Lava_PSMarker_Square.png" id="1_ltb3b"]
+
+[node name="PS_Square" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
+metadata/id = "PS_SQUARE"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_ltb3b")

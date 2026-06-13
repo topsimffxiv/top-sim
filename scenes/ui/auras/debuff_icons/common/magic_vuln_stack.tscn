@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://buc040pa5njbe"]
+
+[ext_resource type="Texture2D" uid="uid://eovn45gqltqy" path="res://assets/common/icons/debuff_icons/magic_vuln_up_stack.png" id="1_sutd6"]
+
+[node name="magic_vuln_stack_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_sutd6")
+expand_mode = 1
+metadata/debuff_name = "Stacking Magic Vulnerability Up"

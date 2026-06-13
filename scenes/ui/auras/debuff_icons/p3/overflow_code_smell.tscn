@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6du6ldtsxno6"]
+
+[ext_resource type="Texture2D" uid="uid://bq7td06qfw3nf" path="res://assets/common/icons/debuff_icons/overflow_code_smell.png" id="1_1nlrw"]
+
+[node name="overflow_code_smell_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_1nlrw")
+expand_mode = 1
+metadata/debuff_name = "Overflow Code Smell"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bun37ph61nq33"]
+
+[ext_resource type="Texture2D" uid="uid://b3gmu855mfqnw" path="res://assets/common/icons/debuff_icons/oversampled_wave_cannon_loading.png" id="1_iplpf"]
+
+[node name="oversampled_wave_cannon_loading_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_iplpf")
+expand_mode = 1
+metadata/debuff_name = "Oversampled Wave Cannon Loading"

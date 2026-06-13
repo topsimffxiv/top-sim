@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://y1ssiiml7dic"]
+
+[ext_resource type="PackedScene" uid="uid://cdif8cup0jnut" path="res://assets/p5/other/arrow_spinny.glb" id="1_ua3kf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ua3kf"]
+albedo_color = Color(0.960811, 0.684455, 3.85046e-07, 1)
+emission_enabled = true
+emission = Color(0.771087, 0.476793, 1.92523e-07, 1)
+emission_energy_multiplier = 8.73
+
+[sub_resource type="TorusMesh" id="TorusMesh_fat57"]
+inner_radius = 4.85
+outer_radius = 4.9
+
+[sub_resource type="Animation" id="Animation_fat57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ua3kf"]
+resource_name = "spin_clockwise"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y3dax"]
+_data = {
+&"RESET": SubResource("Animation_fat57"),
+&"spin_clockwise": SubResource("Animation_ua3kf")
+}
+
+[node name="arrow_spinny_clockwise" instance=ExtResource("1_ua3kf")]
+
+[node name="Text_019" parent="." index="0"]
+transform = Transform3D(1.496, 0, 0, 0, -9.61651e-08, 5, 0, -2.2, -2.18557e-07, 0, 4.486, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_ua3kf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 4.486, 0)
+mesh = SubResource("TorusMesh_fat57")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_y3dax")
+}
+autoplay = "spin_clockwise"

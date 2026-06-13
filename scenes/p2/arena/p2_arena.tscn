@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://djevtr7sppgki"]
+
+[ext_resource type="Texture2D" uid="uid://dpptny8f362yx" path="res://assets/p2/arena/p2_floor.png" id="1_e3iao"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yhib"]
+cull_mode = 2
+albedo_texture = ExtResource("1_e3iao")
+metallic = 1.0
+metallic_specular = 1.0
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_offset = Vector3(0.5, 0, 0.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.659753
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rv2y8"]
+material = SubResource("StandardMaterial3D_5yhib")
+top_radius = 20.11
+bottom_radius = 20.0
+height = 0.5
+
+[node name="P2_Arena" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423207, -0.24292, -0.0522223)
+mesh = SubResource("CylinderMesh_rv2y8")

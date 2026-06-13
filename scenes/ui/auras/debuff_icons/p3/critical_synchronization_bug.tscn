@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://byj2tufmjf2u4"]
+
+[ext_resource type="Texture2D" uid="uid://cq5uwjmg5vyrw" path="res://assets/common/icons/debuff_icons/critical_synchronization_bug.png" id="1_qn42p"]
+
+[node name="critical_synchronization_bug_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_qn42p")
+expand_mode = 1
+metadata/debuff_name = "Critical Synchronization Bug"

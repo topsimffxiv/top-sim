@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://d36a31hjljc2u"]
+
+[ext_resource type="PackedScene" uid="uid://gvokxfq2brg1" path="res://assets/p3/enemies/right_arm_unit/right_arm_unit.glb" id="1_egbkb"]
+[ext_resource type="Script" uid="uid://b2mog0v0bgtg1" path="res://scenes/p3/enemies/arm_unit.gd" id="2_2cp01"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_egbkb"]
+animation = &"definitely_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2cp01"]
+animation = &"laser_blast"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sscl5"]
+advance_mode = 2
+
+[sub_resource type="Curve" id="Curve_83xjc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4, 0.808989), 0.57992, 0.57992, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mscnb"]
+xfade_time = 0.5
+xfade_curve = SubResource("Curve_83xjc")
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f1yau"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_62eps"]
+states/definitely_idle/node = SubResource("AnimationNodeAnimation_egbkb")
+states/definitely_idle/position = Vector2(430, 86)
+states/laser_blast/node = SubResource("AnimationNodeAnimation_2cp01")
+states/laser_blast/position = Vector2(591, 119)
+transitions = ["Start", "definitely_idle", SubResource("AnimationNodeStateMachineTransition_sscl5"), "definitely_idle", "laser_blast", SubResource("AnimationNodeStateMachineTransition_mscnb"), "laser_blast", "definitely_idle", SubResource("AnimationNodeStateMachineTransition_f1yau")]
+
+[node name="right_arm_unit" instance=ExtResource("1_egbkb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("2_2cp01")
+
+[node name="Skeleton3D" parent="m0524b0001/n_root" index="0"]
+bones/0/position = Vector3(0, 0, -0.623887)
+bones/0/rotation = Quaternion(-0.707019, -0.0111315, -0.0111315, 0.707019)
+bones/1/position = Vector3(-0.0160126, 0.622852, -0.611607)
+bones/1/rotation = Quaternion(0.457288, -0.717243, 0.517565, 0.0926124)
+bones/2/rotation = Quaternion(8.68121e-08, -1.06877e-07, -0.506667, 0.862142)
+bones/3/rotation = Quaternion(-0.687465, -0.0328007, 0.0189686, 0.725229)
+bones/4/rotation = Quaternion(-0.162288, 0.180255, 0.198298, 0.949657)
+bones/5/rotation = Quaternion(0.00520571, 0.00654312, -0.627808, 0.778323)
+bones/6/rotation = Quaternion(0.09108, -0.0273117, 0.208395, 0.973412)
+bones/7/rotation = Quaternion(1.44806e-07, -2.30618e-07, -0.609876, 0.792497)
+bones/8/rotation = Quaternion(0.305991, -0.00140794, -0.686137, 0.659987)
+bones/9/rotation = Quaternion(3.67229e-08, -9.64224e-08, 0.554739, 0.832024)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "definitely_idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_62eps")
+anim_player = NodePath("../AnimationPlayer")

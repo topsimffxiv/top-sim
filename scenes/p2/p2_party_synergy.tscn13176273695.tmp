@@ -1,0 +1,488 @@
+[gd_scene load_steps=44 format=3 uid="uid://ds3wx4lmthkq0"]
+
+[ext_resource type="Script" uid="uid://bjedc7lge7jbd" path="res://scenes/p2/p2_party_synergy.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b23aj0fsxbgap" path="res://scenes/menus/control_menu.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://vftsma2c80sa" path="res://scenes/menus/pause_menu.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://chasoddjwqblg" path="res://scenes/ui/cast_bars/cast_bar.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://d0c27klcaisbj" path="res://scenes/ui/cast_bars/clone_cast_bar.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cg0h4uysscvtc" path="res://scenes/ui/action_bar.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cidk1e7u3l0ya" path="res://scenes/ui/fail_list.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://02ckwb1trdp4" path="res://scenes/ui/party_list/party_list.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://du2fr4o3nsww0" path="res://scenes/ui/auras/player_debuffs.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://cbimodxf0fbhu" path="res://scenes/ui/waymark_menu.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://cr7iyhritaug4" path="res://scenes/common/controllers/chains_controller.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://bwd1v6kvgas8d" path="res://scenes/common/controllers/waymark_controller.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://bayxk6ajn7khf" path="res://scenes/common/controllers/party_controller.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://wdaa7tvsg1oy" path="res://scenes/common/controllers/lockon_controller.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://bauk161giibov" path="res://scenes/common/controllers/ground_aoe_controller.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://bquxvmem65yi8" path="res://scenes/common/controllers/puddle_controller.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://crewso7ys1t5t" path="res://scenes/common/controllers/encounter_controller.tscn" id="17"]
+[ext_resource type="Script" uid="uid://ct0bpwcmo8dte" path="res://scenes/p2/sequences/light_ramp_seq.gd" id="18"]
+[ext_resource type="PackedScene" uid="uid://djevtr7sppgki" path="res://scenes/p2/arena/p_2_trimmed.tscn" id="19"]
+[ext_resource type="Script" uid="uid://cl3ea6hh071t2" path="res://scenes/p2/sequences/party_synergy_seq.gd" id="19_3fk4c"]
+[ext_resource type="PackedScene" uid="uid://b5a8l81gltuhy" path="res://scenes/common/ground_markers/death_wall.tscn" id="20"]
+[ext_resource type="Texture2D" uid="uid://bmcxcd6diyj1x" path="res://assets/common/world_markers/wm_ground_marker.png" id="22"]
+[ext_resource type="PackedScene" uid="uid://cx1e24x10ugws" path="res://scenes/p2/arena/large_orb.tscn" id="23"]
+[ext_resource type="PackedScene" uid="uid://dk8wgj3bctdlt" path="res://scenes/p2/enemies/omega_m.tscn" id="23_g6pup"]
+[ext_resource type="PackedScene" uid="uid://x27g2ljpul4a" path="res://scenes/common/enemies/eye.tscn" id="23_gwamg"]
+[ext_resource type="PackedScene" uid="uid://jcbpndkhehjl" path="res://scenes/ui/coords.tscn" id="24"]
+[ext_resource type="Script" uid="uid://csh60sag7kx8n" path="res://scenes/ui/role_select_button.gd" id="25"]
+[ext_resource type="Script" uid="uid://c5qtf0pvgljg0" path="res://scenes/ui/spectate_button.gd" id="26"]
+[ext_resource type="PackedScene" uid="uid://ce72svh5khi1u" path="res://scenes/ui/sequence_select_button.tscn" id="27"]
+[ext_resource type="Script" uid="uid://cqwrxtpiavdwi" path="res://scenes/p2/strat_select_button.gd" id="28"]
+[ext_resource type="Script" uid="uid://6glv0urwd1kw" path="res://scenes/p2/puddles_select_button.gd" id="29"]
+[ext_resource type="PackedScene" uid="uid://cmakti71sjg46" path="res://scenes/ui/info_box.tscn" id="30"]
+[ext_resource type="PackedScene" uid="uid://c6lwk2vknoj7w" path="res://scenes/ui/move_ui_reset_button.tscn" id="31"]
+
+[sub_resource type="Animation" id="Animation_pevb2"]
+resource_name = "light_ramp"
+length = 60.0
+step = 0.01
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightRampSeq")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3, 8.75, 11, 15.6, 17.2, 18.8, 19, 20.4, 22, 23, 25, 26.7, 29.6, 32, 33.7, 37.1, 40, 45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"cast_lr"
+}, {
+"args": [],
+"method": &"assing_debuffs"
+}, {
+"args": [],
+"method": &"spawn_solo_towers"
+}, {
+"args": [],
+"method": &"first_puddle_snapshot"
+}, {
+"args": [],
+"method": &"second_puddle_snapshot"
+}, {
+"args": [],
+"method": &"third_puddle_snapshot"
+}, {
+"args": [],
+"method": &"towers_snapshot"
+}, {
+"args": [],
+"method": &"forth_puddle_snapshot"
+}, {
+"args": [],
+"method": &"fifth_puddle_snapshot"
+}, {
+"args": [],
+"method": &"second_orbs_spawn"
+}, {
+"args": [],
+"method": &"group_soak_hit"
+}, {
+"args": [],
+"method": &"first_orbs_hit"
+}, {
+"args": [],
+"method": &"second_orbs_hit"
+}, {
+"args": [],
+"method": &"show_halo_orbs"
+}, {
+"args": [],
+"method": &"middle_tower_snapshot"
+}, {
+"args": [],
+"method": &"spread_pairs_hit"
+}, {
+"args": [],
+"method": &"start_house_cast"
+}, {
+"args": [],
+"method": &"protean_wave_hits"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightRampSeq")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 9.75, 10.75, 12.3, 20, 23.3, 24.5, 27, 34.4, 38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"move_pre_pos"
+}, {
+"args": [],
+"method": &"move_puddles_tower_lineup"
+}, {
+"args": [],
+"method": &"move_tower_lineup"
+}, {
+"args": [],
+"method": &"move_tower_soak"
+}, {
+"args": [],
+"method": &"move_post_tower"
+}, {
+"args": [],
+"method": &"move_to_intermediate_spot"
+}, {
+"args": [],
+"method": &"move_safe_spot_1"
+}, {
+"args": [],
+"method": &"move_safe_spot_2"
+}, {
+"args": [],
+"method": &"move_spread_pairs"
+}, {
+"args": [],
+"method": &"move_to_clock_pos"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightRampSeq")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_shiva_cast"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svxln"]
+_data = {
+&"light_ramp": SubResource("Animation_pevb2")
+}
+
+[sub_resource type="Animation" id="Animation_3fk4c"]
+resource_name = "party_synergy"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"cast_chariot"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_omega_m_square"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgvtx"]
+_data = {
+&"party_synergy": SubResource("Animation_3fk4c")
+}
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_23fhv"]
+data = PackedVector3Array(150, 0, 150, -150, 0, 150, 150, 0, -150, -150, 0, 150, -150, 0, -150, 150, 0, -150)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5pku"]
+transparency = 1
+albedo_texture = ExtResource("22")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5pk2k"]
+material = SubResource("StandardMaterial3D_s5pku")
+size = Vector2(8.795, 6.96)
+center_offset = Vector3(-0.115, 0, 0.022)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p3ej1"]
+
+[sub_resource type="Sky" id="Sky_3kvju"]
+sky_material = SubResource("ProceduralSkyMaterial_p3ej1")
+
+[sub_resource type="Environment" id="Environment_ncsmy"]
+background_mode = 2
+sky = SubResource("Sky_3kvju")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="P2LRMain" type="Node3D"]
+script = ExtResource("1")
+
+[node name="ControlMenu" parent="." instance=ExtResource("2")]
+unique_name_in_owner = true
+layer = 99
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("3")]
+
+[node name="CastBar" parent="." instance=ExtResource("4")]
+unique_name_in_owner = true
+
+[node name="CloneCastBar" parent="." instance=ExtResource("5")]
+
+[node name="ActionBar" parent="." instance=ExtResource("6")]
+unique_name_in_owner = true
+
+[node name="FailList" parent="." instance=ExtResource("7")]
+unique_name_in_owner = true
+
+[node name="PartyList" parent="." instance=ExtResource("8")]
+unique_name_in_owner = true
+
+[node name="PlayerDebuffs" parent="." instance=ExtResource("9")]
+unique_name_in_owner = true
+
+[node name="WaymarkMenu" parent="." instance=ExtResource("10")]
+
+[node name="LRChainsController" parent="." instance=ExtResource("11")]
+unique_name_in_owner = true
+
+[node name="WaymarkController" parent="." node_paths=PackedStringArray("arena_waymark_node") instance=ExtResource("12")]
+unique_name_in_owner = true
+arena_waymark_node = NodePath("../Waymarks")
+
+[node name="PartyController" parent="." instance=ExtResource("13")]
+unique_name_in_owner = true
+
+[node name="LockonController" parent="." instance=ExtResource("14")]
+unique_name_in_owner = true
+
+[node name="GroundAoEController" parent="." instance=ExtResource("15")]
+unique_name_in_owner = true
+
+[node name="PuddleController" parent="." instance=ExtResource("16")]
+unique_name_in_owner = true
+
+[node name="EncounterController" parent="." instance=ExtResource("17")]
+unique_name_in_owner = true
+
+[node name="LightRampSeq" type="Node" parent="EncounterController"]
+script = ExtResource("18")
+
+[node name="LightRampAnim" type="AnimationPlayer" parent="EncounterController/LightRampSeq"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_svxln")
+}
+
+[node name="PartySynergySeq" type="Node" parent="EncounterController"]
+script = ExtResource("19_3fk4c")
+
+[node name="PartySynergyAnim" type="AnimationPlayer" parent="EncounterController/PartySynergySeq"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_wgvtx")
+}
+
+[node name="Arena" type="Node3D" parent="."]
+
+[node name="Visual" type="Node3D" parent="Arena"]
+transform = Transform3D(2.358, 0, 0, 0, 2.358, 0, 0, 0, 2.358, 0, 0, 0)
+
+[node name="P2Trimmed" parent="Arena/Visual" instance=ExtResource("19")]
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Arena"]
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/FloorMesh"]
+collision_layer = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/FloorMesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_23fhv")
+
+[node name="DeathWall" parent="Arena" instance=ExtResource("20")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.00943565, 0.0281925, 0.00103366)
+
+[node name="Waymarks" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Characters" type="Node3D" parent="." groups=["characters_layer"]]
+
+[node name="Enemies" type="Node3D" parent="." groups=["enemies_layer"]]
+
+[node name="Boss" type="Node3D" parent="Enemies"]
+
+[node name="eye" parent="Enemies/Boss" instance=ExtResource("23_gwamg")]
+transform = Transform3D(-1.09278e-05, -84.5237, -181.262, 0, 181.262, -84.5237, 250, -3.69465e-06, -7.92319e-06, 100, -10, 0)
+
+[node name="omega_m" parent="Enemies/Boss" instance=ExtResource("23_g6pup")]
+unique_name_in_owner = true
+transform = Transform3D(-2.62268e-07, 0, 6, 0, 6, 0, -6, 0, -2.62268e-07, 0, 0, 0)
+
+[node name="GroundMarkers" type="Node3D" parent="." groups=["ground_marker_layer"]]
+
+[node name="WMGroundMarker" type="MeshInstance3D" parent="GroundMarkers"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60837, 0.14, 0.0603294)
+visible = false
+mesh = SubResource("PlaneMesh_5pk2k")
+
+[node name="SpecialMarkers" type="Node3D" parent="GroundMarkers"]
+unique_name_in_owner = true
+
+[node name="LargeOrb1" parent="GroundMarkers/SpecialMarkers" instance=ExtResource("23")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7, 0, 0)
+
+[node name="LargeOrb2" parent="GroundMarkers/SpecialMarkers" instance=ExtResource("23")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 32.8)
+
+[node name="LargeOrb3" parent="GroundMarkers/SpecialMarkers" instance=ExtResource("23")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 32.8)
+
+[node name="LargeOrb4" parent="GroundMarkers/SpecialMarkers" instance=ExtResource("23")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7, 0, 0)
+
+[node name="LargeOrb5" parent="GroundMarkers/SpecialMarkers" instance=ExtResource("23")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -32.8)
+
+[node name="LargeOrb6" parent="GroundMarkers/SpecialMarkers" instance=ExtResource("23")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -32.8)
+
+[node name="Buttons" type="Node3D" parent="."]
+
+[node name="Coords" parent="Buttons" instance=ExtResource("24")]
+anchors_preset = 3
+
+[node name="ResetButton" type="Button" parent="Buttons"]
+offset_left = 28.0
+offset_top = 18.0
+offset_right = 128.0
+offset_bottom = 58.0
+text = "Reset"
+
+[node name="MainMenuButton" type="Button" parent="Buttons"]
+visible = false
+offset_left = 28.0
+offset_top = 73.0
+offset_right = 128.0
+offset_bottom = 113.0
+text = "Main Menu"
+
+[node name="RoleSelectButton" type="OptionButton" parent="Buttons"]
+offset_left = 150.0
+offset_top = 21.0
+offset_right = 327.0
+offset_bottom = 52.0
+focus_mode = 0
+action_mode = 1
+button_mask = 3
+selected = 6
+fit_to_longest_item = false
+item_count = 8
+popup/item_0/text = "Tank 1"
+popup/item_0/id = 0
+popup/item_1/text = "Tank 2"
+popup/item_1/id = 1
+popup/item_2/text = "Healer 1"
+popup/item_2/id = 2
+popup/item_3/text = "Healer 2"
+popup/item_3/id = 3
+popup/item_4/text = "Melee 1"
+popup/item_4/id = 4
+popup/item_5/text = "Melee 2"
+popup/item_5/id = 5
+popup/item_6/text = "Ranged 1"
+popup/item_6/id = 6
+popup/item_7/text = "Ranged 2"
+popup/item_7/id = 7
+script = ExtResource("25")
+
+[node name="SpectateButton" type="CheckButton" parent="Buttons"]
+offset_left = 149.0
+offset_top = 55.0
+offset_right = 315.0
+offset_bottom = 86.0
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Spectate Mode"
+script = ExtResource("26")
+
+[node name="SequenceSelectButton2" parent="Buttons" instance=ExtResource("27")]
+item_count = 1
+popup/item_0/text = "Party Synergy"
+
+[node name="StratSelectButton" type="OptionButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -374.0
+offset_top = 21.0
+offset_right = -226.0
+offset_bottom = 52.0
+grow_horizontal = 0
+focus_mode = 0
+action_mode = 1
+button_mask = 3
+selected = 0
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "NAUR (E/W Puddles)"
+popup/item_0/id = 0
+popup/item_1/text = "LPDU (N/S Puddles)"
+popup/item_1/id = 1
+popup/item_2/text = "Elemental (E/W)"
+popup/item_2/id = 2
+popup/item_3/text = "Mana (NE/SW)"
+popup/item_3/id = 3
+script = ExtResource("28")
+
+[node name="PuddlesSelectButton" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_top = 62.0
+offset_right = -14.0
+offset_bottom = 93.0
+grow_horizontal = 0
+focus_mode = 0
+button_mask = 3
+text = "Force Puddles"
+script = ExtResource("29")
+
+[node name="VersionLabel" parent="Buttons" instance=ExtResource("30")]
+
+[node name="MoveUIResetButton" parent="Buttons" instance=ExtResource("31")]
+unique_name_in_owner = true
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ncsmy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.869
+
+[connection signal="pressed" from="Buttons/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="item_selected" from="Buttons/RoleSelectButton" to="Buttons/RoleSelectButton" method="_on_item_selected"]
+[connection signal="pressed" from="Buttons/SpectateButton" to="Buttons/SpectateButton" method="_on_pressed"]
+[connection signal="item_selected" from="Buttons/StratSelectButton" to="Buttons/StratSelectButton" method="_on_item_selected"]
+[connection signal="pressed" from="Buttons/PuddlesSelectButton" to="Buttons/PuddlesSelectButton" method="_on_pressed"]

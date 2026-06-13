@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://pxm2nufj28d"]
+
+[ext_resource type="Texture2D" uid="uid://q4wyamn6ayun" path="res://assets/common/icons/debuff_icons/mid_glitch.png" id="1_f3vqe"]
+
+[node name="mid_glitch_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_f3vqe")
+expand_mode = 1
+metadata/debuff_name = "Mid Glitch"

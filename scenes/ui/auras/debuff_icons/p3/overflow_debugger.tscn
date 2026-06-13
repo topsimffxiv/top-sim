@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://px53q2bd0ldf"]
+
+[ext_resource type="Texture2D" uid="uid://c0tyfp4q5kilc" path="res://assets/common/icons/debuff_icons/overflow_debugger.png" id="1_5ua8q"]
+
+[node name="overflow_debugger_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_5ua8q")
+expand_mode = 1
+metadata/debuff_name = "Overflow Debugger"

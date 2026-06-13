@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://sc2ntexqv4ni"]
+
+[ext_resource type="Texture2D" uid="uid://dc62xq2pljqw1" path="res://assets/common/icons/debuff_icons/remote_code_smell.png" id="1_vshnd"]
+
+[node name="remote_code_smell_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_vshnd")
+expand_mode = 1
+metadata/debuff_name = "Remote Code Smell"

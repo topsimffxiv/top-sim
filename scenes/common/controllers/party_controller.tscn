@@ -1,0 +1,26 @@
+[gd_scene load_steps=12 format=3 uid="uid://bayxk6ajn7khf"]
+
+[ext_resource type="Script" uid="uid://rwb6cno7uli0" path="res://scenes/common/controllers/party_controller.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cykot1qnoc45c" path="res://scenes/common/player_characters/player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://crwb0a8mipbol" path="res://scenes/common/player_characters/bot.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://hivkddjs085h" path="res://scenes/common/player_characters/models/viera_male_pld.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dvrpipgs88afs" path="res://scenes/common/player_characters/models/hyur_male_war.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://baphbpclx1s5t" path="res://scenes/common/player_characters/models/miq_female_whm.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cdh1dcg7t1j83" path="res://scenes/common/player_characters/models/viera_male_sch.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://5wof3xy5257k" path="res://scenes/common/player_characters/models/miq_female_sam.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://c2bhwb778gv04" path="res://scenes/common/player_characters/models/miqote.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://c8ket6tbd1um" path="res://scenes/common/player_characters/models/miq_male_dnc.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://csno5cuasor1m" path="res://scenes/common/player_characters/models/aura_female_smn.tscn" id="11"]
+
+[node name="PartyController" type="Node" groups=["party_controller"]]
+script = ExtResource("1")
+player_scene = ExtResource("2")
+bot_scene = ExtResource("3")
+tank_1_model = ExtResource("4")
+tank_2_model = ExtResource("5")
+healer_1_model = ExtResource("6")
+healer_2_model = ExtResource("7")
+melee_1_model = ExtResource("8")
+melee_2_model = ExtResource("9")
+ranged_model = ExtResource("10")
+caster_model = ExtResource("11")

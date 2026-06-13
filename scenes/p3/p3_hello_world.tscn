@@ -1,0 +1,641 @@
+[gd_scene load_steps=45 format=3 uid="uid://j48fmltkjces"]
+
+[ext_resource type="Script" uid="uid://bavh61dcsvs1e" path="res://scenes/p3/p3_hello_world.gd" id="1_ansvb"]
+[ext_resource type="PackedScene" uid="uid://b23aj0fsxbgap" path="res://scenes/menus/control_menu.tscn" id="2_b5j1t"]
+[ext_resource type="PackedScene" uid="uid://vftsma2c80sa" path="res://scenes/menus/pause_menu.tscn" id="3_kbude"]
+[ext_resource type="PackedScene" uid="uid://chasoddjwqblg" path="res://scenes/ui/cast_bars/cast_bar.tscn" id="4_2fe58"]
+[ext_resource type="PackedScene" uid="uid://d0c27klcaisbj" path="res://scenes/ui/cast_bars/clone_cast_bar.tscn" id="5_vf1qn"]
+[ext_resource type="PackedScene" uid="uid://cg0h4uysscvtc" path="res://scenes/ui/action_bar.tscn" id="6_s617m"]
+[ext_resource type="PackedScene" uid="uid://cidk1e7u3l0ya" path="res://scenes/ui/fail_list.tscn" id="7_fg4ww"]
+[ext_resource type="PackedScene" uid="uid://02ckwb1trdp4" path="res://scenes/ui/party_list/party_list.tscn" id="8_m22fo"]
+[ext_resource type="PackedScene" uid="uid://du2fr4o3nsww0" path="res://scenes/ui/auras/player_debuffs.tscn" id="9_cssmi"]
+[ext_resource type="PackedScene" uid="uid://cbimodxf0fbhu" path="res://scenes/ui/waymark_menu.tscn" id="10_op05k"]
+[ext_resource type="PackedScene" uid="uid://bwd1v6kvgas8d" path="res://scenes/common/controllers/waymark_controller.tscn" id="11_clx3n"]
+[ext_resource type="PackedScene" uid="uid://bayxk6ajn7khf" path="res://scenes/common/controllers/party_controller.tscn" id="12_yxy7r"]
+[ext_resource type="PackedScene" uid="uid://wdaa7tvsg1oy" path="res://scenes/common/controllers/lockon_controller.tscn" id="13_6u76k"]
+[ext_resource type="PackedScene" uid="uid://cr7iyhritaug4" path="res://scenes/common/controllers/chains_controller.tscn" id="14_1oj7c"]
+[ext_resource type="PackedScene" uid="uid://bauk161giibov" path="res://scenes/common/controllers/ground_aoe_controller.tscn" id="15_0iqqu"]
+[ext_resource type="PackedScene" uid="uid://bquxvmem65yi8" path="res://scenes/common/controllers/puddle_controller.tscn" id="16_8ps72"]
+[ext_resource type="PackedScene" uid="uid://crewso7ys1t5t" path="res://scenes/common/controllers/encounter_controller.tscn" id="17_quqit"]
+[ext_resource type="Script" uid="uid://chobs2dg2456w" path="res://scenes/p3/sequences/hello_world_seq.gd" id="18_2bwvg"]
+[ext_resource type="PackedScene" uid="uid://gsypihh45nek" path="res://scenes/p3/arena/p3_arena.tscn" id="19_ym2vr"]
+[ext_resource type="PackedScene" uid="uid://b5a8l81gltuhy" path="res://scenes/common/ground_markers/death_wall.tscn" id="20_agsvb"]
+[ext_resource type="PackedScene" uid="uid://cmgo86upnsrka" path="res://scenes/p3/enemies/final_omega.tscn" id="21_2fe58"]
+[ext_resource type="Texture2D" uid="uid://bmcxcd6diyj1x" path="res://assets/common/world_markers/wm_ground_marker.png" id="22_57dor"]
+[ext_resource type="PackedScene" uid="uid://cypkdpypuypj4" path="res://scenes/common/enemies/hitbox_ring.tscn" id="22_vf1qn"]
+[ext_resource type="PackedScene" uid="uid://jcbpndkhehjl" path="res://scenes/ui/coords.tscn" id="23_bo3f5"]
+[ext_resource type="Script" uid="uid://csh60sag7kx8n" path="res://scenes/ui/role_select_button.gd" id="24_4da0d"]
+[ext_resource type="Script" uid="uid://c5qtf0pvgljg0" path="res://scenes/ui/spectate_button.gd" id="25_wcvxf"]
+[ext_resource type="PackedScene" uid="uid://ce72svh5khi1u" path="res://scenes/ui/sequence_select_button.tscn" id="27_pkqro"]
+[ext_resource type="Script" uid="uid://cqwrxtpiavdwi" path="res://scenes/p2/strat_select_button.gd" id="28_b538s"]
+[ext_resource type="Script" uid="uid://xkit6svackal" path="res://scenes/p3/force_red_defamation.gd" id="28_kbude"]
+[ext_resource type="Script" uid="uid://cyg7f51vccs6y" path="res://scenes/p3/force_blue_defamation.gd" id="29_2fe58"]
+[ext_resource type="Script" uid="uid://bmqcfvhb037nk" path="res://scenes/p3/force_defam.gd" id="30_vf1qn"]
+[ext_resource type="Script" uid="uid://doaxnccah42c3" path="res://scenes/p3/force_remote.gd" id="31_ansvb"]
+[ext_resource type="Script" uid="uid://cve8bpe6q8qoq" path="res://scenes/p3/force_stack.gd" id="31_s617m"]
+[ext_resource type="PackedScene" uid="uid://cmakti71sjg46" path="res://scenes/ui/info_box.tscn" id="32_a77ta"]
+[ext_resource type="Script" uid="uid://8egydkfm4gco" path="res://scenes/p3/force_local.gd" id="32_b5j1t"]
+[ext_resource type="PackedScene" uid="uid://c6lwk2vknoj7w" path="res://scenes/ui/move_ui_reset_button.tscn" id="33_xlxra"]
+
+[sub_resource type="Animation" id="Animation_ym2vr"]
+resource_name = "hello_world_anim"
+length = 120.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.4, 10.0333, 22.5, 32.3, 38.5, 43.5, 53.3, 60.5, 64.5, 74.3, 81.5, 85.5, 95.3, 107.533),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"cast_hello_world"
+}, {
+"args": [],
+"method": &"move_to_path_radius"
+}, {
+"args": [],
+"method": &"move_rot_to_soak_pos"
+}, {
+"args": [],
+"method": &"move_to_pass_rots"
+}, {
+"args": [],
+"method": &"move_party_prep_pos"
+}, {
+"args": [],
+"method": &"move_rot_to_soak_pos"
+}, {
+"args": [],
+"method": &"move_to_pass_rots"
+}, {
+"args": [],
+"method": &"move_party_prep_pos"
+}, {
+"args": [],
+"method": &"move_rot_to_soak_pos"
+}, {
+"args": [],
+"method": &"move_to_pass_rots"
+}, {
+"args": [],
+"method": &"move_party_prep_pos"
+}, {
+"args": [],
+"method": &"move_rot_to_soak_pos"
+}, {
+"args": [],
+"method": &"move_party_to_dodge_pos_final"
+}, {
+"args": [],
+"method": &"cast_critical_error"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.03333, 12, 21.5, 30.8, 33.5, 42.5, 51.8, 54.5, 63.5, 72.8, 75.5, 84.5, 93.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"hw_cast_end"
+}, {
+"args": [],
+"method": &"move_to_initial_pos"
+}, {
+"args": [],
+"method": &"cast_latent_defect"
+}, {
+"args": [],
+"method": &"latent_defect_cast_end"
+}, {
+"args": [],
+"method": &"move_party_to_dodge_pos"
+}, {
+"args": [],
+"method": &"cast_latent_defect"
+}, {
+"args": [],
+"method": &"latent_defect_cast_end"
+}, {
+"args": [],
+"method": &"move_party_to_dodge_pos"
+}, {
+"args": [],
+"method": &"cast_latent_defect"
+}, {
+"args": [],
+"method": &"latent_defect_cast_end"
+}, {
+"args": [],
+"method": &"move_party_to_dodge_pos"
+}, {
+"args": [],
+"method": &"cast_latent_defect"
+}, {
+"args": [],
+"method": &"latent_defect_cast_end"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8.53333, 22.5, 28.5, 39.5, 43.5, 49.5333, 61.5333, 64.5, 70.5, 82.5, 85.4667, 91.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"fix_parties"
+}, {
+"args": [],
+"method": &"move_tether_to_wait_pos"
+}, {
+"args": [],
+"method": &"move_tether_to_soak_pos"
+}, {
+"args": [],
+"method": &"adjust_to_next_role"
+}, {
+"args": [],
+"method": &"move_tether_to_wait_pos"
+}, {
+"args": [],
+"method": &"move_tether_to_soak_pos"
+}, {
+"args": [],
+"method": &"adjust_to_next_role"
+}, {
+"args": [],
+"method": &"move_tether_to_wait_pos"
+}, {
+"args": [],
+"method": &"move_tether_to_soak_pos"
+}, {
+"args": [],
+"method": &"adjust_to_next_role"
+}, {
+"args": [],
+"method": &"move_tether_to_wait_pos_final"
+}, {
+"args": [],
+"method": &"move_tether_to_soak_pos_final"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%EncounterController/../Enemies/Final_Omega")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.4, 7.06667, 13.7333, 16.8, 19.8, 21.5, 30.8, 34.4, 37.4667, 40.4, 42.5, 51.8, 55.4, 58.4, 61.4, 63.5, 72.8, 76.4, 79.4, 82.4, 84.5, 93.8, 97.4, 100.4, 103.4, 106.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_start_cast"
+}, {
+"args": [],
+"method": &"play_finish_hello_world_cast"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_start_cast"
+}, {
+"args": [],
+"method": &"play_finish_latent_defect_cast"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_start_cast"
+}, {
+"args": [],
+"method": &"play_finish_latent_defect_cast"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_start_cast"
+}, {
+"args": [],
+"method": &"play_finish_latent_defect_cast"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_start_cast"
+}, {
+"args": [],
+"method": &"play_finish_latent_defect_cast"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}, {
+"args": [],
+"method": &"play_auto_attack"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ansvb"]
+_data = {
+&"hello_world": SubResource("Animation_ym2vr")
+}
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_23fhv"]
+data = PackedVector3Array(150, 0, 150, -150, 0, 150, 150, 0, -150, -150, 0, 150, -150, 0, -150, 150, 0, -150)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5pku"]
+transparency = 1
+albedo_texture = ExtResource("22_57dor")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5pk2k"]
+material = SubResource("StandardMaterial3D_s5pku")
+size = Vector2(8.795, 6.96)
+center_offset = Vector3(-0.115, 0, 0.022)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p3ej1"]
+
+[sub_resource type="Sky" id="Sky_3kvju"]
+sky_material = SubResource("ProceduralSkyMaterial_p3ej1")
+
+[sub_resource type="Environment" id="Environment_ncsmy"]
+background_mode = 2
+sky = SubResource("Sky_3kvju")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="P3HelloWorldMain" type="Node3D"]
+script = ExtResource("1_ansvb")
+
+[node name="ControlMenu" parent="." instance=ExtResource("2_b5j1t")]
+unique_name_in_owner = true
+layer = 99
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_kbude")]
+
+[node name="CastBar" parent="." instance=ExtResource("4_2fe58")]
+unique_name_in_owner = true
+
+[node name="CloneCastBar" parent="." instance=ExtResource("5_vf1qn")]
+
+[node name="ActionBar" parent="." instance=ExtResource("6_s617m")]
+unique_name_in_owner = true
+
+[node name="FailList" parent="." instance=ExtResource("7_fg4ww")]
+unique_name_in_owner = true
+
+[node name="PartyList" parent="." instance=ExtResource("8_m22fo")]
+unique_name_in_owner = true
+
+[node name="PlayerDebuffs" parent="." instance=ExtResource("9_cssmi")]
+unique_name_in_owner = true
+
+[node name="WaymarkMenu" parent="." instance=ExtResource("10_op05k")]
+
+[node name="WaymarkController" parent="." node_paths=PackedStringArray("arena_waymark_node") instance=ExtResource("11_clx3n")]
+unique_name_in_owner = true
+arena_waymark_node = NodePath("../Waymarks")
+
+[node name="PartyController" parent="." instance=ExtResource("12_yxy7r")]
+unique_name_in_owner = true
+
+[node name="LockonController" parent="." instance=ExtResource("13_6u76k")]
+unique_name_in_owner = true
+
+[node name="ChainsController" parent="." instance=ExtResource("14_1oj7c")]
+unique_name_in_owner = true
+
+[node name="GroundAoEController" parent="." instance=ExtResource("15_0iqqu")]
+unique_name_in_owner = true
+
+[node name="PuddleController" parent="." instance=ExtResource("16_8ps72")]
+unique_name_in_owner = true
+
+[node name="EncounterController" parent="." instance=ExtResource("17_quqit")]
+unique_name_in_owner = true
+
+[node name="HelloWorldSeq" type="Node" parent="EncounterController"]
+script = ExtResource("18_2bwvg")
+
+[node name="HelloWorldAnim" type="AnimationPlayer" parent="EncounterController/HelloWorldSeq"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ansvb")
+}
+
+[node name="Arena" type="Node3D" parent="."]
+
+[node name="Visual" type="Node3D" parent="Arena"]
+transform = Transform3D(2.358, 0, 0, 0, 2.358, 0, 0, 0, 2.358, 0, 0, 0)
+
+[node name="P3_Arena" parent="Arena/Visual" instance=ExtResource("19_ym2vr")]
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Arena"]
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/FloorMesh"]
+collision_layer = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/FloorMesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_23fhv")
+
+[node name="DeathWall" parent="Arena" instance=ExtResource("20_agsvb")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.00943565, 0.0281925, 0.00103366)
+
+[node name="Waymarks" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Characters" type="Node3D" parent="." groups=["characters_layer"]]
+
+[node name="Enemies" type="Node3D" parent="." groups=["enemies_layer"]]
+
+[node name="Final_Omega" parent="Enemies" instance=ExtResource("21_2fe58")]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, 0, 0, 0)
+
+[node name="HitboxRing" parent="Enemies/Final_Omega" instance=ExtResource("22_vf1qn")]
+transform = Transform3D(-6.33815e-08, 0, -1.45, 0, 1.45, 0, 1.45, 0, -6.33815e-08, -7.23861e-09, 0, 0.1656)
+
+[node name="GroundMarkers" type="Node3D" parent="." groups=["ground_marker_layer"]]
+
+[node name="WMGroundMarker" type="MeshInstance3D" parent="GroundMarkers"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60837, 0.14, 0.0603294)
+visible = false
+mesh = SubResource("PlaneMesh_5pk2k")
+
+[node name="SpecialMarkers" type="Node3D" parent="GroundMarkers"]
+unique_name_in_owner = true
+
+[node name="Buttons" type="Node3D" parent="."]
+
+[node name="Coords" parent="Buttons" instance=ExtResource("23_bo3f5")]
+anchors_preset = 3
+
+[node name="ResetButton" type="Button" parent="Buttons"]
+offset_left = 28.0
+offset_top = 18.0
+offset_right = 128.0
+offset_bottom = 58.0
+text = "Reset"
+
+[node name="MainMenuButton" type="Button" parent="Buttons"]
+visible = false
+offset_left = 28.0
+offset_top = 73.0
+offset_right = 128.0
+offset_bottom = 113.0
+text = "Main Menu"
+
+[node name="RoleSelectButton" type="OptionButton" parent="Buttons"]
+offset_left = 150.0
+offset_top = 21.0
+offset_right = 327.0
+offset_bottom = 52.0
+focus_mode = 0
+action_mode = 1
+button_mask = 3
+selected = 6
+fit_to_longest_item = false
+item_count = 8
+popup/item_0/text = "Tank 1"
+popup/item_0/id = 0
+popup/item_1/text = "Tank 2"
+popup/item_1/id = 1
+popup/item_2/text = "Healer 1"
+popup/item_2/id = 2
+popup/item_3/text = "Healer 2"
+popup/item_3/id = 3
+popup/item_4/text = "Melee 1"
+popup/item_4/id = 4
+popup/item_5/text = "Melee 2"
+popup/item_5/id = 5
+popup/item_6/text = "Ranged 1"
+popup/item_6/id = 6
+popup/item_7/text = "Ranged 2"
+popup/item_7/id = 7
+script = ExtResource("24_4da0d")
+
+[node name="SpectateButton" type="CheckButton" parent="Buttons"]
+offset_left = 149.0
+offset_top = 55.0
+offset_right = 315.0
+offset_bottom = 86.0
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Spectate Mode"
+script = ExtResource("25_wcvxf")
+
+[node name="SequenceSelectButton" parent="Buttons" instance=ExtResource("27_pkqro")]
+item_count = 12
+popup/item_0/text = "Looper"
+popup/item_1/text = "Pantokrator"
+popup/item_2/text = "Party Synergy"
+popup/item_3/text = "Limitless Synergy"
+popup/item_4/text = "P3 Transition"
+popup/item_5/text = "Hello World"
+popup/item_6/text = "Monitors"
+popup/item_7/text = "Blue Screen"
+popup/item_7/id = 7
+popup/item_8/text = "Dynamis Delta"
+popup/item_8/id = 8
+popup/item_9/text = "Dynamis Sigma"
+popup/item_9/id = 9
+popup/item_10/text = "Dynamis Omega"
+popup/item_10/id = 10
+popup/item_11/text = "Alpha Omega"
+popup/item_11/id = 11
+
+[node name="StratSelectButton" type="OptionButton" parent="Buttons"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -374.0
+offset_top = 21.0
+offset_right = -226.0
+offset_bottom = 52.0
+grow_horizontal = 0
+focus_mode = 0
+action_mode = 1
+button_mask = 3
+selected = 0
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "NAUR (E/W Puddles)"
+popup/item_0/id = 0
+popup/item_1/text = "LPDU (N/S Puddles)"
+popup/item_1/id = 1
+popup/item_2/text = "Elemental (E/W)"
+popup/item_2/id = 2
+popup/item_3/text = "Mana (NE/SW)"
+popup/item_3/id = 3
+script = ExtResource("28_b538s")
+
+[node name="ForceRedDefamation" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 62.0
+offset_right = -14.0
+offset_bottom = 93.0
+grow_horizontal = 0
+tooltip_text = "RED ♨😩is 💦defamation. First 😌towers. R 🌈💰E 🐝🅱 D 😩😡is 💯🅱 defamation. Pass. 💯Pop 💦✨Green. Watch 👾rots."
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+button_mask = 3
+text = "Red is Defamation"
+script = ExtResource("28_kbude")
+
+[node name="ForceBlueDefamation" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 84.0
+offset_right = -14.0
+offset_bottom = 115.0
+grow_horizontal = 0
+tooltip_text = "Blue is Defamation"
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Blue is Defamation"
+script = ExtResource("29_2fe58")
+
+[node name="ForceDefam" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 106.0
+offset_right = -14.0
+offset_bottom = 137.0
+grow_horizontal = 0
+tooltip_text = "Force Mid Glitch"
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Start Defam"
+script = ExtResource("30_vf1qn")
+
+[node name="ForceStack" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -146.0
+offset_top = 127.0
+offset_right = -14.0
+offset_bottom = 158.0
+grow_horizontal = 0
+tooltip_text = "Force both stacks on same side"
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Start Stack
+"
+script = ExtResource("31_s617m")
+
+[node name="ForceRemote" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -164.0
+offset_top = 148.0
+offset_right = -14.0
+offset_bottom = 179.0
+grow_horizontal = 0
+tooltip_text = "Start Remote (blue/white)"
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Start Remote"
+script = ExtResource("31_ansvb")
+
+[node name="ForceLocal" type="CheckButton" parent="Buttons"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_top = 168.0
+offset_right = -14.0
+offset_bottom = 199.0
+grow_horizontal = 0
+tooltip_text = "Start Local (red/green)"
+focus_mode = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Start Local"
+script = ExtResource("32_b5j1t")
+
+[node name="VersionLabel" parent="Buttons" instance=ExtResource("32_a77ta")]
+
+[node name="MoveUIResetButton" parent="Buttons" instance=ExtResource("33_xlxra")]
+unique_name_in_owner = true
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ncsmy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.869
+
+[connection signal="pressed" from="Buttons/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="item_selected" from="Buttons/RoleSelectButton" to="Buttons/RoleSelectButton" method="_on_item_selected"]
+[connection signal="pressed" from="Buttons/SpectateButton" to="Buttons/SpectateButton" method="_on_pressed"]
+[connection signal="item_selected" from="Buttons/StratSelectButton" to="Buttons/StratSelectButton" method="_on_item_selected"]
+[connection signal="pressed" from="Buttons/ForceRedDefamation" to="Buttons/ForceRedDefamation" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/ForceBlueDefamation" to="Buttons/ForceBlueDefamation" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/ForceDefam" to="Buttons/ForceDefam" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/ForceStack" to="Buttons/ForceStack" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/ForceRemote" to="Buttons/ForceRemote" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/ForceLocal" to="Buttons/ForceLocal" method="_on_pressed"]

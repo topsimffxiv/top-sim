@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbi4t06xhhitx"]
+
+[ext_resource type="Texture2D" uid="uid://bax34awpanffg" path="res://assets/common/icons/debuff_icons/packet_filter_m.png" id="1_a47dm"]
+
+[node name="packet_filter_m_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_a47dm")
+expand_mode = 1
+metadata/debuff_name = "Packet Filter M"

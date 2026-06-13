@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b280lc473ug6w"]
+
+[ext_resource type="Texture2D" uid="uid://dd6munkscwsoq" path="res://assets/common/icons/debuff_icons/critical_performance_bug.png" id="1_dyelu"]
+
+[node name="critical_performance_bug_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_dyelu")
+expand_mode = 1
+metadata/debuff_name = "Critical Performance Bug"

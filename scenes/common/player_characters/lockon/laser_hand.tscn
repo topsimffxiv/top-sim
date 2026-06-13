@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmwyopiwhdy68"]
+
+[ext_resource type="Shader" uid="uid://bh6ue78tpaj12" path="res://scenes/common/player_characters/lockon/dashed_tether.gdshader" id="1_lsnqo"]
+[ext_resource type="Script" uid="uid://coah1hidkpqye" path="res://scenes/common/player_characters/lockon/laser_hand.gd" id="2_lsnqo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rvfa"]
+render_priority = 0
+shader = ExtResource("1_lsnqo")
+shader_parameter/base_color = Color(1, 1, 0.239216, 1)
+shader_parameter/dash_color = Color(0, 0, 0, 0)
+shader_parameter/mesh_length = 1.0
+shader_parameter/dash_speed = 2.0
+shader_parameter/dash_size = 0.1
+
+[sub_resource type="PrismMesh" id="PrismMesh_lsnqo"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_8rvfa")
+size = Vector3(0.05, 0.05, 1)
+
+[node name="LaserHandTether" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("PrismMesh_lsnqo")
+skeleton = NodePath("../../../GroundMarkers")
+script = ExtResource("2_lsnqo")

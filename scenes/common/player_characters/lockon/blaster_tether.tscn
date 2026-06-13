@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://doale556tbth7"]
+
+[ext_resource type="Shader" uid="uid://bh6ue78tpaj12" path="res://scenes/common/player_characters/lockon/dashed_tether.gdshader" id="1_jm6w8"]
+[ext_resource type="Script" uid="uid://baiqnd15r47p2" path="res://scenes/common/player_characters/lockon/blaster_tether.gd" id="2_jm6w8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rvfa"]
+render_priority = 0
+shader = ExtResource("1_jm6w8")
+shader_parameter/base_color = Color(0.838475, 0.321207, 0, 1)
+shader_parameter/dash_color = Color(0, 0, 0, 0)
+shader_parameter/mesh_length = 1.0
+shader_parameter/dash_speed = 2.0
+shader_parameter/dash_size = 0.1
+
+[sub_resource type="PrismMesh" id="PrismMesh_coko6"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_8rvfa")
+size = Vector3(0.05, 0.05, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jm6w8"]
+height = 1.0
+radius = 0.25
+
+[node name="BlasterTether" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_jm6w8")
+
+[node name="BlasterTetherMesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("PrismMesh_coko6")
+skeleton = NodePath("../../../GroundMarkers")
+
+[node name="BlasterTetherCollision" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.5)
+shape = SubResource("CylinderShape3D_jm6w8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

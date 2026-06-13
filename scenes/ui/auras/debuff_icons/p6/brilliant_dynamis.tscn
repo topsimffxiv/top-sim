@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1bmp0ba0jwjc"]
+
+[ext_resource type="Texture2D" uid="uid://cdg26eswj467k" path="res://assets/common/icons/debuff_icons/brilliant_dynamis.png" id="1_lq4nm"]
+
+[node name="brilliant_dynamis_icon" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 32.0
+texture = ExtResource("1_lq4nm")
+expand_mode = 1
+metadata/debuff_name = "Brilliant Dynamis"
